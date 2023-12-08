@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_401" data-name="Group 401" transform="translate(-56.085 -22)">
+    <rect id="Rectangle_86" data-name="Rectangle 86" width="24" height="24" transform="translate(56.085 22)" fill="none"/>
+    <path id="ic_delete_forever_24px" d="M5.889,17.222A1.783,1.783,0,0,0,7.667,19h7.111a1.783,1.783,0,0,0,1.778-1.778V6.556H5.889Zm2.187-6.329L9.329,9.64l1.893,1.884L13.107,9.64l1.253,1.253-1.884,1.884,1.884,1.884-1.253,1.253-1.884-1.884L9.338,15.916,8.084,14.662l1.884-1.884Zm6.258-7L13.444,3H9l-.889.889H5V5.667H17.444V3.889Z" transform="translate(57.085 23)" fill="red"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="48" viewBox="0 0 128 48">
+  <g id="Group_203" data-name="Group 203" transform="translate(-260 -370)">
+    <g id="Rectangle_58" data-name="Rectangle 58" transform="translate(260 370)" fill="#fff" stroke="#cf2d48" stroke-width="1">
+      <rect width="128" height="48" rx="14" stroke="none"/>
+      <rect x="0.5" y="0.5" width="127" height="47" rx="13.5" fill="none"/>
+    </g>
+    <g id="Group_202" data-name="Group 202" transform="translate(-34.457 -20.789)">
+      <g id="google_1_" data-name="google (1)" transform="translate(322.457 409)">
+        <path id="Path_252" data-name="Path 252" d="M4.638,106.236a5.224,5.224,0,0,1,.739-2.685v-3.336H2.042a9.9,9.9,0,0,0,0,12.042H5.377v-3.336A5.224,5.224,0,0,1,4.638,106.236Z" transform="translate(0 -96.342)" fill="#fbbd00"/>
+        <path id="Path_253" data-name="Path 253" d="M198.319,373.7,196,376.016l2.319,2.319a9.82,9.82,0,0,0,6.021-2.042v-3.332h-3.332A5.256,5.256,0,0,1,198.319,373.7Z" transform="translate(-188.425 -358.546)" fill="#0f9d58"/>
+        <path id="Path_254" data-name="Path 254" d="M56.159,325.477l-3.336,3.336a10.053,10.053,0,0,0,.856.975,9.83,9.83,0,0,0,7,2.9v-4.638A5.259,5.259,0,0,1,56.159,325.477Z" transform="translate(-50.781 -312.897)" fill="#31aa52"/>
+        <path id="Path_255" data-name="Path 255" d="M265.894,199.592a9.982,9.982,0,0,0-.162-1.792l-.087-.475H256v4.638h4.694a5.233,5.233,0,0,1-2.005,2.15l3.332,3.332a10.055,10.055,0,0,0,.975-.856A9.83,9.83,0,0,0,265.894,199.592Z" transform="translate(-246.106 -189.697)" fill="#3c79e6"/>
+        <path id="Path_256" data-name="Path 256" d="M202.036,6.178l.41.41,3.28-3.28-.41-.41a9.83,9.83,0,0,0-7-2.9L196,2.319l2.319,2.319A5.222,5.222,0,0,1,202.036,6.178Z" transform="translate(-188.425 0)" fill="#cf2d48"/>
+        <path id="Path_257" data-name="Path 257" d="M60.675,4.638V0a9.83,9.83,0,0,0-7,2.9,10.042,10.042,0,0,0-.856.975l3.336,3.336a5.259,5.259,0,0,1,4.517-2.571Z" transform="translate(-50.78 0)" fill="#eb4132"/>
+      </g>
+      <text id="google" transform="translate(352 419.789)" fill="#ae0028" font-size="16" font-family="Dubai-Regular, Dubai"><tspan x="0" y="0">google</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,3853 @@
+openapi: 3.0.3
+info:
+  title: 'Al Watnaia'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://alwatania.aquadic.com'
+paths:
+  /api/auth/register:
+    post:
+      summary: 'Register New User.'
+      operationId: registerNewUser
+      description: "Sends Email with OTP to user's email."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: hwxthoeydeenegj
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: cwnauhrpfni
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ashleigh59@example.com
+                password:
+                  type: string
+                  description: 'Must not be greater than 100 characters. Must be at least 8 characters.'
+                  example: "?A'.p`hq>d>S>"
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+      security: []
+  /api/auth/verifyUser:
+    post:
+      summary: 'Verify User Account.'
+      operationId: verifyUserAccount
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: velit
+                code:
+                  type: string
+                  description: 'Must be at least 6 characters. Must not be greater than 6 characters.'
+                  example: uqaea
+              required:
+                - username
+                - code
+      security: []
+  /api/auth/login:
+    post:
+      summary: 'Login user Account'
+      operationId: loginUserAccount
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: ut
+                password:
+                  type: string
+                  description: ''
+                  example: hic
+              required:
+                - username
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Logout From Account'
+      operationId: logoutFromAccount
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                from_all:
+                  type: boolean
+                  description: 'optional send to logout from all devices.'
+                  example: false
+  /api/auth/update_profile:
+    post:
+      summary: ''
+      operationId: postApiAuthUpdate_profile
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: zuiiuzznss
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: dzokapeuzaqmfufbsa
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: florida.schaefer@example.com
+                current_password:
+                  type: string
+                  description: ''
+                  example: null
+                password:
+                  type: string
+                  description: 'This field is required when <code>current_password</code> is present.'
+                  example: null
+      security: []
+  /api/auth/change_password:
+    post:
+      summary: 'TODO(Saifallak): Pending Test.'
+      operationId: tODOSaifallakPendingTest
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: quam
+                reset_token:
+                  type: string
+                  description: ''
+                  example: labore
+                password:
+                  type: string
+                  description: ''
+                  example: quod
+              required:
+                - username
+                - reset_token
+                - password
+      security: []
+  /api/auth/user:
+    get:
+      summary: 'Get Current User.'
+      operationId: getCurrentUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Auth
+  /api/auth/reset_password:
+    post:
+      summary: "Reset Password\nTODO(Saifallak): Pending Test."
+      operationId: resetPasswordTODOSaifallakPendingTest
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: qui
+              required:
+                - username
+      security: []
+  /api/auth/verify_reset_password:
+    post:
+      summary: 'Verify Reset Password.'
+      operationId: verifyResetPassword
+      description: 'TODO(Saifallak): Pending Test.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: aut
+                username:
+                  type: string
+                  description: ''
+                  example: tempora
+              required:
+                - code
+                - username
+      security: []
+  /api/home/data:
+    get:
+      summary: "to get all data\nget brands+ banners"
+      operationId: toGetAllDatagetBrands+Banners
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Success
+                  body:
+                    brands:
+                      -
+                        id: 1
+                        name:
+                          ar: 'الآنسة صباح العنزي'
+                          en: 'Haylee White'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 3
+                        name:
+                          ar: 'ميسا الداوود'
+                          en: 'Dr. Lexi Gulgowski DVM'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 4
+                        name:
+                          ar: 'ملهم الشهري'
+                          en: 'Brooks Windler'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 5
+                        name:
+                          ar: 'سدير مظفر العتيبي'
+                          en: 'Terrell McGlynn Sr.'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 6
+                        name:
+                          ar: 'تولين عبد الغني رضوان الخضيري'
+                          en: 'Evie Shields II'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 7
+                        name:
+                          ar: 'شافع زين مهاب المطرفي'
+                          en: 'Ms. Shaylee Reilly V'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 8
+                        name:
+                          ar: 'ميناس الصامل'
+                          en: 'Ms. Modesta Moore'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 9
+                        name:
+                          ar: 'زينا عرمان السهلي'
+                          en: 'Yolanda Terry'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 11
+                        name:
+                          ar: 'صفية إيهاب راكان الخالدي'
+                          en: 'Lamont Nader'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 12
+                        name:
+                          ar: 'نشات الأحمري'
+                          en: 'Prof. Afton Block'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 13
+                        name:
+                          ar: 'رماح هاشم الحنتوشي'
+                          en: 'Brandt Ernser'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 14
+                        name:
+                          ar: 'وجدي اسامة شافع مكي'
+                          en: 'Dr. Dewayne McKenzie'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 15
+                        name:
+                          ar: 'سيرينا المطرفي'
+                          en: 'Prof. Raquel Morissette II'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 18
+                        name:
+                          ar: 'نايف الخالدي'
+                          en: 'Hulda Tremblay'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 19
+                        name:
+                          ar: 'هيفاء السهلي'
+                          en: 'Miss Emilie Spinka'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                      -
+                        id: 20
+                        name:
+                          ar: 'عزام الجهني'
+                          en: 'Guido Huels'
+                        is_active: 1
+                        created_at: '2023-01-19T11:40:03.000000Z'
+                        updated_at: '2023-01-19T11:40:03.000000Z'
+                        media: []
+                    banners: []
+                    countries:
+                      -
+                        id: 1
+                        name:
+                          ar: مصر
+                          en: egypt
+                        is_active: 1
+                        created_at: null
+                        updated_at: null
+                        cities:
+                          -
+                            id: 1
+                            name:
+                              ar: الاسكندريه
+                              en: Alexandria
+                            country_id: 1
+                            delivery_fees: 20
+                            is_active: true
+                            created_at: null
+                            updated_at: null
+                            areas:
+                              -
+                                id: 5
+                                name:
+                                  ar: 'ملاك الشهيل'
+                                  en: 'Onie Trantow'
+                                city_id: 1
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 11
+                                name:
+                                  ar: 'اياس الأحمري'
+                                  en: 'Raoul Considine'
+                                city_id: 1
+                                is_active: false
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 15
+                                name:
+                                  ar: 'صبا الفدا'
+                                  en: 'Myrtle Lakin'
+                                city_id: 1
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 17
+                                name:
+                                  ar: 'همام المطرفي'
+                                  en: 'Maye Toy III'
+                                city_id: 1
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 18
+                                name:
+                                  ar: 'اثير الصقيه'
+                                  en: 'Stephen Schimmel'
+                                city_id: 1
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 19
+                                name:
+                                  ar: 'عبلة سقا'
+                                  en: 'Wilma Ruecker'
+                                city_id: 1
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                          -
+                            id: 2
+                            name:
+                              ar: ' القاهره  '
+                              en: ' cairo'
+                            country_id: 1
+                            delivery_fees: 20
+                            is_active: true
+                            created_at: null
+                            updated_at: null
+                            areas:
+                              -
+                                id: 2
+                                name:
+                                  ar: 'الآنسة ميلاء العنزي'
+                                  en: 'Ms. Kenna Braun'
+                                city_id: 2
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 8
+                                name:
+                                  ar: 'سيلين البراء الداوود'
+                                  en: 'Orion Volkman'
+                                city_id: 2
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 9
+                                name:
+                                  ar: 'وعد الصامل'
+                                  en: 'Violet Streich II'
+                                city_id: 2
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                      -
+                        id: 2
+                        name:
+                          ar: 'المملكه العربيه  السعوديه'
+                          en: 'Saudi Arabia'
+                        is_active: 1
+                        created_at: null
+                        updated_at: null
+                        cities:
+                          -
+                            id: 3
+                            name:
+                              ar: ' الرياض  '
+                              en: ' Ryadh'
+                            country_id: 2
+                            delivery_fees: 40
+                            is_active: true
+                            created_at: null
+                            updated_at: null
+                            areas:
+                              -
+                                id: 10
+                                name:
+                                  ar: 'المهندسة نانسي العمرو'
+                                  en: 'Dr. Regan Fahey I'
+                                city_id: 3
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                          -
+                            id: 4
+                            name:
+                              ar: جده
+                              en: Jeddah
+                            country_id: 2
+                            delivery_fees: 50
+                            is_active: true
+                            created_at: null
+                            updated_at: null
+                            areas:
+                              -
+                                id: 4
+                                name:
+                                  ar: 'مطيع العقل'
+                                  en: 'Sibyl Lueilwitz'
+                                city_id: 4
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 7
+                                name:
+                                  ar: 'وديع منذر عميد العمرو'
+                                  en: 'Amanda Rath'
+                                city_id: 4
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 12
+                                name:
+                                  ar: 'نسيمة العرفج'
+                                  en: 'Bertrand Witting'
+                                city_id: 4
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 20
+                                name:
+                                  ar: 'لينا الشهيل'
+                                  en: 'Andres Anderson'
+                                city_id: 4
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                      -
+                        id: 3
+                        name:
+                          ar: 'الولايات المتحده'
+                          en: Usa
+                        is_active: 1
+                        created_at: null
+                        updated_at: null
+                        cities:
+                          -
+                            id: 5
+                            name:
+                              ar: كاليفورنيا
+                              en: california
+                            country_id: 3
+                            delivery_fees: 50
+                            is_active: true
+                            created_at: null
+                            updated_at: null
+                            areas:
+                              -
+                                id: 13
+                                name:
+                                  ar: 'الدكتورة لميس المطرفي'
+                                  en: 'Nat Oberbrunner'
+                                city_id: 5
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 14
+                                name:
+                                  ar: 'ريتا هشام السليم'
+                                  en: 'Mr. Taylor Aufderhar MD'
+                                city_id: 5
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 16
+                                name:
+                                  ar: 'الآنسة غرام الشهري'
+                                  en: 'Miss May Sipes V'
+                                city_id: 5
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                          -
+                            id: 6
+                            name:
+                              ar: اورلاندو
+                              en: orlando
+                            country_id: 3
+                            delivery_fees: 50
+                            is_active: true
+                            created_at: null
+                            updated_at: null
+                            areas:
+                              -
+                                id: 1
+                                name:
+                                  ar: 'وسام مدني'
+                                  en: 'Sarina Bergstrom III'
+                                city_id: 6
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 3
+                                name:
+                                  ar: 'شفاء السماري'
+                                  en: 'Jade Rempel'
+                                city_id: 6
+                                is_active: true
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 6
+                                name:
+                                  ar: 'أبراهيم عمرو عمار المطرفي'
+                                  en: 'Molly Rippin'
+                                city_id: 6
+                                is_active: false
+                                created_at: '2023-01-19T11:40:04.000000Z'
+                                updated_at: '2023-01-19T11:40:04.000000Z'
+                                shipping_time:
+                                  ar: 'الشحن من 5 ل6 ايام'
+                                  en: 'shipping will be from 5 to 6 days'
+                    paymentMethod: []
+                    coupons:
+                      -
+                        code: AmazingCode175240
+                      -
+                        code: AwesomeCode959960
+                      -
+                        code: AwesomeDiscount502893
+                      -
+                        code: AwesomePrice938281
+                      -
+                        code: CoolDiscount956807
+                      -
+                        code: GreatPrice164007
+                      -
+                        code: GreatPromo730609
+                      -
+                        code: GreatSavings836504
+                      -
+                        code: IncredibleCode982294
+                      -
+                        code: IncrediblePrice724240
+                      -
+                        code: IncrediblePromotion733949
+                      -
+                        code: KillerCode389722
+                      -
+                        code: KillerPrice466945
+                      -
+                        code: KillerPromo442984
+                      -
+                        code: KillerSavings986654
+                      -
+                        code: PremiumPrice930242
+                      -
+                        code: PremiumPromotion322432
+                      -
+                        code: SpecialDiscount434786
+                      -
+                        code: StellarDeal675219
+                      -
+                        code: StellarSavings820796
+                    about_watania: 'not written yet'
+                    return_policy: 'not written yet'
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  body:
+                    type: object
+                    properties:
+                      brands:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            name:
+                              ar: 'الآنسة صباح العنزي'
+                              en: 'Haylee White'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 3
+                            name:
+                              ar: 'ميسا الداوود'
+                              en: 'Dr. Lexi Gulgowski DVM'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 4
+                            name:
+                              ar: 'ملهم الشهري'
+                              en: 'Brooks Windler'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 5
+                            name:
+                              ar: 'سدير مظفر العتيبي'
+                              en: 'Terrell McGlynn Sr.'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 6
+                            name:
+                              ar: 'تولين عبد الغني رضوان الخضيري'
+                              en: 'Evie Shields II'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 7
+                            name:
+                              ar: 'شافع زين مهاب المطرفي'
+                              en: 'Ms. Shaylee Reilly V'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 8
+                            name:
+                              ar: 'ميناس الصامل'
+                              en: 'Ms. Modesta Moore'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 9
+                            name:
+                              ar: 'زينا عرمان السهلي'
+                              en: 'Yolanda Terry'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 11
+                            name:
+                              ar: 'صفية إيهاب راكان الخالدي'
+                              en: 'Lamont Nader'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 12
+                            name:
+                              ar: 'نشات الأحمري'
+                              en: 'Prof. Afton Block'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 13
+                            name:
+                              ar: 'رماح هاشم الحنتوشي'
+                              en: 'Brandt Ernser'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 14
+                            name:
+                              ar: 'وجدي اسامة شافع مكي'
+                              en: 'Dr. Dewayne McKenzie'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 15
+                            name:
+                              ar: 'سيرينا المطرفي'
+                              en: 'Prof. Raquel Morissette II'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 18
+                            name:
+                              ar: 'نايف الخالدي'
+                              en: 'Hulda Tremblay'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 19
+                            name:
+                              ar: 'هيفاء السهلي'
+                              en: 'Miss Emilie Spinka'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                          -
+                            id: 20
+                            name:
+                              ar: 'عزام الجهني'
+                              en: 'Guido Huels'
+                            is_active: 1
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                            media: []
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: object
+                              properties:
+                                ar:
+                                  type: string
+                                  example: 'الآنسة صباح العنزي'
+                                en:
+                                  type: string
+                                  example: 'Haylee White'
+                            is_active:
+                              type: integer
+                              example: 1
+                            created_at:
+                              type: string
+                              example: '2023-01-19T11:40:03.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2023-01-19T11:40:03.000000Z'
+                            media:
+                              type: array
+                              example: []
+                      banners:
+                        type: array
+                        example: []
+                      countries:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            name:
+                              ar: مصر
+                              en: egypt
+                            is_active: 1
+                            created_at: null
+                            updated_at: null
+                            cities:
+                              -
+                                id: 1
+                                name:
+                                  ar: الاسكندريه
+                                  en: Alexandria
+                                country_id: 1
+                                delivery_fees: 20
+                                is_active: true
+                                created_at: null
+                                updated_at: null
+                                areas:
+                                  -
+                                    id: 5
+                                    name:
+                                      ar: 'ملاك الشهيل'
+                                      en: 'Onie Trantow'
+                                    city_id: 1
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 11
+                                    name:
+                                      ar: 'اياس الأحمري'
+                                      en: 'Raoul Considine'
+                                    city_id: 1
+                                    is_active: false
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 15
+                                    name:
+                                      ar: 'صبا الفدا'
+                                      en: 'Myrtle Lakin'
+                                    city_id: 1
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 17
+                                    name:
+                                      ar: 'همام المطرفي'
+                                      en: 'Maye Toy III'
+                                    city_id: 1
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 18
+                                    name:
+                                      ar: 'اثير الصقيه'
+                                      en: 'Stephen Schimmel'
+                                    city_id: 1
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 19
+                                    name:
+                                      ar: 'عبلة سقا'
+                                      en: 'Wilma Ruecker'
+                                    city_id: 1
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 2
+                                name:
+                                  ar: ' القاهره  '
+                                  en: ' cairo'
+                                country_id: 1
+                                delivery_fees: 20
+                                is_active: true
+                                created_at: null
+                                updated_at: null
+                                areas:
+                                  -
+                                    id: 2
+                                    name:
+                                      ar: 'الآنسة ميلاء العنزي'
+                                      en: 'Ms. Kenna Braun'
+                                    city_id: 2
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 8
+                                    name:
+                                      ar: 'سيلين البراء الداوود'
+                                      en: 'Orion Volkman'
+                                    city_id: 2
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 9
+                                    name:
+                                      ar: 'وعد الصامل'
+                                      en: 'Violet Streich II'
+                                    city_id: 2
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                          -
+                            id: 2
+                            name:
+                              ar: 'المملكه العربيه  السعوديه'
+                              en: 'Saudi Arabia'
+                            is_active: 1
+                            created_at: null
+                            updated_at: null
+                            cities:
+                              -
+                                id: 3
+                                name:
+                                  ar: ' الرياض  '
+                                  en: ' Ryadh'
+                                country_id: 2
+                                delivery_fees: 40
+                                is_active: true
+                                created_at: null
+                                updated_at: null
+                                areas:
+                                  -
+                                    id: 10
+                                    name:
+                                      ar: 'المهندسة نانسي العمرو'
+                                      en: 'Dr. Regan Fahey I'
+                                    city_id: 3
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 4
+                                name:
+                                  ar: جده
+                                  en: Jeddah
+                                country_id: 2
+                                delivery_fees: 50
+                                is_active: true
+                                created_at: null
+                                updated_at: null
+                                areas:
+                                  -
+                                    id: 4
+                                    name:
+                                      ar: 'مطيع العقل'
+                                      en: 'Sibyl Lueilwitz'
+                                    city_id: 4
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 7
+                                    name:
+                                      ar: 'وديع منذر عميد العمرو'
+                                      en: 'Amanda Rath'
+                                    city_id: 4
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 12
+                                    name:
+                                      ar: 'نسيمة العرفج'
+                                      en: 'Bertrand Witting'
+                                    city_id: 4
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 20
+                                    name:
+                                      ar: 'لينا الشهيل'
+                                      en: 'Andres Anderson'
+                                    city_id: 4
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                          -
+                            id: 3
+                            name:
+                              ar: 'الولايات المتحده'
+                              en: Usa
+                            is_active: 1
+                            created_at: null
+                            updated_at: null
+                            cities:
+                              -
+                                id: 5
+                                name:
+                                  ar: كاليفورنيا
+                                  en: california
+                                country_id: 3
+                                delivery_fees: 50
+                                is_active: true
+                                created_at: null
+                                updated_at: null
+                                areas:
+                                  -
+                                    id: 13
+                                    name:
+                                      ar: 'الدكتورة لميس المطرفي'
+                                      en: 'Nat Oberbrunner'
+                                    city_id: 5
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 14
+                                    name:
+                                      ar: 'ريتا هشام السليم'
+                                      en: 'Mr. Taylor Aufderhar MD'
+                                    city_id: 5
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 16
+                                    name:
+                                      ar: 'الآنسة غرام الشهري'
+                                      en: 'Miss May Sipes V'
+                                    city_id: 5
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                              -
+                                id: 6
+                                name:
+                                  ar: اورلاندو
+                                  en: orlando
+                                country_id: 3
+                                delivery_fees: 50
+                                is_active: true
+                                created_at: null
+                                updated_at: null
+                                areas:
+                                  -
+                                    id: 1
+                                    name:
+                                      ar: 'وسام مدني'
+                                      en: 'Sarina Bergstrom III'
+                                    city_id: 6
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 3
+                                    name:
+                                      ar: 'شفاء السماري'
+                                      en: 'Jade Rempel'
+                                    city_id: 6
+                                    is_active: true
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                                  -
+                                    id: 6
+                                    name:
+                                      ar: 'أبراهيم عمرو عمار المطرفي'
+                                      en: 'Molly Rippin'
+                                    city_id: 6
+                                    is_active: false
+                                    created_at: '2023-01-19T11:40:04.000000Z'
+                                    updated_at: '2023-01-19T11:40:04.000000Z'
+                                    shipping_time:
+                                      ar: 'الشحن من 5 ل6 ايام'
+                                      en: 'shipping will be from 5 to 6 days'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: object
+                              properties:
+                                ar:
+                                  type: string
+                                  example: مصر
+                                en:
+                                  type: string
+                                  example: egypt
+                            is_active:
+                              type: integer
+                              example: 1
+                            created_at:
+                              type: string
+                              example: null
+                            updated_at:
+                              type: string
+                              example: null
+                            cities:
+                              type: array
+                              example:
+                                -
+                                  id: 1
+                                  name:
+                                    ar: الاسكندريه
+                                    en: Alexandria
+                                  country_id: 1
+                                  delivery_fees: 20
+                                  is_active: true
+                                  created_at: null
+                                  updated_at: null
+                                  areas:
+                                    -
+                                      id: 5
+                                      name: { ar: 'ملاك الشهيل', en: 'Onie Trantow' }
+                                      city_id: 1
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 11
+                                      name: { ar: 'اياس الأحمري', en: 'Raoul Considine' }
+                                      city_id: 1
+                                      is_active: false
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 15
+                                      name: { ar: 'صبا الفدا', en: 'Myrtle Lakin' }
+                                      city_id: 1
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 17
+                                      name: { ar: 'همام المطرفي', en: 'Maye Toy III' }
+                                      city_id: 1
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 18
+                                      name: { ar: 'اثير الصقيه', en: 'Stephen Schimmel' }
+                                      city_id: 1
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 19
+                                      name: { ar: 'عبلة سقا', en: 'Wilma Ruecker' }
+                                      city_id: 1
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                -
+                                  id: 2
+                                  name:
+                                    ar: ' القاهره  '
+                                    en: ' cairo'
+                                  country_id: 1
+                                  delivery_fees: 20
+                                  is_active: true
+                                  created_at: null
+                                  updated_at: null
+                                  areas:
+                                    -
+                                      id: 2
+                                      name: { ar: 'الآنسة ميلاء العنزي', en: 'Ms. Kenna Braun' }
+                                      city_id: 2
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 8
+                                      name: { ar: 'سيلين البراء الداوود', en: 'Orion Volkman' }
+                                      city_id: 2
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                                    -
+                                      id: 9
+                                      name: { ar: 'وعد الصامل', en: 'Violet Streich II' }
+                                      city_id: 2
+                                      is_active: true
+                                      created_at: '2023-01-19T11:40:04.000000Z'
+                                      updated_at: '2023-01-19T11:40:04.000000Z'
+                                      shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' }
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                    example: 1
+                                  name:
+                                    type: object
+                                    properties:
+                                      ar: { type: string, example: الاسكندريه }
+                                      en: { type: string, example: Alexandria }
+                                  country_id:
+                                    type: integer
+                                    example: 1
+                                  delivery_fees:
+                                    type: integer
+                                    example: 20
+                                  is_active:
+                                    type: boolean
+                                    example: true
+                                  created_at:
+                                    type: string
+                                    example: null
+                                  updated_at:
+                                    type: string
+                                    example: null
+                                  areas:
+                                    type: array
+                                    example:
+                                      - { id: 5, name: { ar: 'ملاك الشهيل', en: 'Onie Trantow' }, city_id: 1, is_active: true, created_at: '2023-01-19T11:40:04.000000Z', updated_at: '2023-01-19T11:40:04.000000Z', shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' } }
+                                      - { id: 11, name: { ar: 'اياس الأحمري', en: 'Raoul Considine' }, city_id: 1, is_active: false, created_at: '2023-01-19T11:40:04.000000Z', updated_at: '2023-01-19T11:40:04.000000Z', shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' } }
+                                      - { id: 15, name: { ar: 'صبا الفدا', en: 'Myrtle Lakin' }, city_id: 1, is_active: true, created_at: '2023-01-19T11:40:04.000000Z', updated_at: '2023-01-19T11:40:04.000000Z', shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' } }
+                                      - { id: 17, name: { ar: 'همام المطرفي', en: 'Maye Toy III' }, city_id: 1, is_active: true, created_at: '2023-01-19T11:40:04.000000Z', updated_at: '2023-01-19T11:40:04.000000Z', shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' } }
+                                      - { id: 18, name: { ar: 'اثير الصقيه', en: 'Stephen Schimmel' }, city_id: 1, is_active: true, created_at: '2023-01-19T11:40:04.000000Z', updated_at: '2023-01-19T11:40:04.000000Z', shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' } }
+                                      - { id: 19, name: { ar: 'عبلة سقا', en: 'Wilma Ruecker' }, city_id: 1, is_active: true, created_at: '2023-01-19T11:40:04.000000Z', updated_at: '2023-01-19T11:40:04.000000Z', shipping_time: { ar: 'الشحن من 5 ل6 ايام', en: 'shipping will be from 5 to 6 days' } }
+                                    items:
+                                      type: object
+                                      properties: { id: { type: integer, example: 5 }, name: { type: object, properties: { ar: { type: string, example: 'ملاك الشهيل' }, en: { type: string, example: 'Onie Trantow' } } }, city_id: { type: integer, example: 1 }, is_active: { type: boolean, example: true }, created_at: { type: string, example: '2023-01-19T11:40:04.000000Z' }, updated_at: { type: string, example: '2023-01-19T11:40:04.000000Z' }, shipping_time: { type: object, properties: { ar: { type: string, example: 'الشحن من 5 ل6 ايام' }, en: { type: string, example: 'shipping will be from 5 to 6 days' } } } }
+                      paymentMethod:
+                        type: array
+                        example: []
+                      coupons:
+                        type: array
+                        example:
+                          -
+                            code: AmazingCode175240
+                          -
+                            code: AwesomeCode959960
+                          -
+                            code: AwesomeDiscount502893
+                          -
+                            code: AwesomePrice938281
+                          -
+                            code: CoolDiscount956807
+                          -
+                            code: GreatPrice164007
+                          -
+                            code: GreatPromo730609
+                          -
+                            code: GreatSavings836504
+                          -
+                            code: IncredibleCode982294
+                          -
+                            code: IncrediblePrice724240
+                          -
+                            code: IncrediblePromotion733949
+                          -
+                            code: KillerCode389722
+                          -
+                            code: KillerPrice466945
+                          -
+                            code: KillerPromo442984
+                          -
+                            code: KillerSavings986654
+                          -
+                            code: PremiumPrice930242
+                          -
+                            code: PremiumPromotion322432
+                          -
+                            code: SpecialDiscount434786
+                          -
+                            code: StellarDeal675219
+                          -
+                            code: StellarSavings820796
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                              example: AmazingCode175240
+                      about_watania:
+                        type: string
+                        example: 'not written yet'
+                      return_policy:
+                        type: string
+                        example: 'not written yet'
+      tags:
+        - Endpoints
+      security: []
+  /api/home/products:
+    get:
+      summary: 'to get all products'
+      operationId: toGetAllProducts
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/home/product/{id}':
+    get:
+      summary: ''
+      operationId: getApiHomeProductId
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/home/search:
+    get:
+      summary: ''
+      operationId: getApiHomeSearch
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Success
+                  body:
+                    products:
+                      current_page: 1
+                      data:
+                        -
+                          id: 17
+                          name:
+                            ar: 'سلمى الخضيري'
+                            en: 'Sleek Wool Table'
+                          category_id: 9
+                          is_active: 0
+                          is_exclusive: 0
+                          general_description: 'Consectetur quas aut ut nemo. Qui dolore laudantium dolore eos quia dolores voluptas quam. Non dolorem tempora quae iure iusto ut. Ea non dolor vitae eum.'
+                          technical_description: 'Asperiores ut consectetur vel dolores quod dolorum autem. Sit repellendus tenetur dolor fugiat aperiam explicabo et perferendis. Qui eos dolor quia expedita quibusdam aperiam.'
+                          shipping_time: 'It was so ordered about by mice and rabbits. I.'
+                          price: 13
+                          brand_id: 10
+                          quantity: 61
+                          discount_value: 46
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          reviews_avg_stars: null
+                          reviews_count: 0
+                          final_price: 7.02
+                          image: []
+                      first_page_url: 'https://alwatania.aquadic.com/api/home/search?page=1'
+                      from: 1
+                      next_page_url: null
+                      path: 'https://alwatania.aquadic.com/api/home/search'
+                      per_page: 15
+                      prev_page_url: null
+                      to: 1
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  body:
+                    type: object
+                    properties:
+                      products:
+                        type: object
+                        properties:
+                          current_page:
+                            type: integer
+                            example: 1
+                          data:
+                            type: array
+                            example:
+                              -
+                                id: 17
+                                name:
+                                  ar: 'سلمى الخضيري'
+                                  en: 'Sleek Wool Table'
+                                category_id: 9
+                                is_active: 0
+                                is_exclusive: 0
+                                general_description: 'Consectetur quas aut ut nemo. Qui dolore laudantium dolore eos quia dolores voluptas quam. Non dolorem tempora quae iure iusto ut. Ea non dolor vitae eum.'
+                                technical_description: 'Asperiores ut consectetur vel dolores quod dolorum autem. Sit repellendus tenetur dolor fugiat aperiam explicabo et perferendis. Qui eos dolor quia expedita quibusdam aperiam.'
+                                shipping_time: 'It was so ordered about by mice and rabbits. I.'
+                                price: 13
+                                brand_id: 10
+                                quantity: 61
+                                discount_value: 46
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                reviews_avg_stars: null
+                                reviews_count: 0
+                                final_price: 7.02
+                                image: []
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 17
+                                name:
+                                  type: object
+                                  properties:
+                                    ar:
+                                      type: string
+                                      example: 'سلمى الخضيري'
+                                    en:
+                                      type: string
+                                      example: 'Sleek Wool Table'
+                                category_id:
+                                  type: integer
+                                  example: 9
+                                is_active:
+                                  type: integer
+                                  example: 0
+                                is_exclusive:
+                                  type: integer
+                                  example: 0
+                                general_description:
+                                  type: string
+                                  example: 'Consectetur quas aut ut nemo. Qui dolore laudantium dolore eos quia dolores voluptas quam. Non dolorem tempora quae iure iusto ut. Ea non dolor vitae eum.'
+                                technical_description:
+                                  type: string
+                                  example: 'Asperiores ut consectetur vel dolores quod dolorum autem. Sit repellendus tenetur dolor fugiat aperiam explicabo et perferendis. Qui eos dolor quia expedita quibusdam aperiam.'
+                                shipping_time:
+                                  type: string
+                                  example: 'It was so ordered about by mice and rabbits. I.'
+                                price:
+                                  type: integer
+                                  example: 13
+                                brand_id:
+                                  type: integer
+                                  example: 10
+                                quantity:
+                                  type: integer
+                                  example: 61
+                                discount_value:
+                                  type: integer
+                                  example: 46
+                                discount_expiration_date:
+                                  type: string
+                                  example: '2023-01-22T11:40:03.000000Z'
+                                created_at:
+                                  type: string
+                                  example: '2023-01-19T11:40:03.000000Z'
+                                updated_at:
+                                  type: string
+                                  example: '2023-01-19T11:40:03.000000Z'
+                                reviews_avg_stars:
+                                  type: string
+                                  example: null
+                                reviews_count:
+                                  type: integer
+                                  example: 0
+                                final_price:
+                                  type: number
+                                  example: 7.02
+                                image:
+                                  type: array
+                                  example: []
+                          first_page_url:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/search?page=1'
+                          from:
+                            type: integer
+                            example: 1
+                          next_page_url:
+                            type: string
+                            example: null
+                          path:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/search'
+                          per_page:
+                            type: integer
+                            example: 15
+                          prev_page_url:
+                            type: string
+                            example: null
+                          to:
+                            type: integer
+                            example: 1
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search:
+                  type: string
+                  description: ''
+                  example: ab
+      security: []
+  /api/home/categories:
+    get:
+      summary: 'to get categories with its children'
+      operationId: toGetCategoriesWithItsChildren
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Success
+                  body:
+                    categories:
+                      current_page: 1
+                      data:
+                        -
+                          id: 2
+                          name:
+                            ar: 'حارث حمود المنيف'
+                            en: Home
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 3
+                          name:
+                            ar: 'رداد الداوود'
+                            en: Jewelry
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 4
+                          name:
+                            ar: 'نادين برماوي'
+                            en: Industrial
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 5
+                          name:
+                            ar: 'كرم سري الحسين الشيباني'
+                            en: Electronics
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 7
+                          name:
+                            ar: 'زين مكي'
+                            en: Automotive
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 8
+                          name:
+                            ar: 'داليا منح السهلي'
+                            en: Grocery
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 9
+                          name:
+                            ar: 'ليندا فايز السهلي'
+                            en: Tools
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 10
+                          name:
+                            ar: 'مديحة السهلي'
+                            en: Health
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 11
+                          name:
+                            ar: 'هاني السيف'
+                            en: Garden
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 12
+                          name:
+                            ar: 'الآنسة رزان الشهيل'
+                            en: Garden
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 13
+                          name:
+                            ar: 'مها الأسمري'
+                            en: Electronics
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 14
+                          name:
+                            ar: 'عزيزة رزق الأسمري'
+                            en: Home
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 15
+                          name:
+                            ar: 'السيدة سرى باشا'
+                            en: Shoes
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 16
+                          name:
+                            ar: 'الياس العمرو'
+                            en: Industrial
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                        -
+                          id: 17
+                          name:
+                            ar: 'غيداء جاسم الشهري'
+                            en: Home
+                          is_active: 1
+                          parent_id: null
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          image: []
+                          children: []
+                      first_page_url: 'https://alwatania.aquadic.com/api/home/categories?page=1'
+                      from: 1
+                      next_page_url: 'https://alwatania.aquadic.com/api/home/categories?page=2'
+                      path: 'https://alwatania.aquadic.com/api/home/categories'
+                      per_page: 15
+                      prev_page_url: null
+                      to: 15
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  body:
+                    type: object
+                    properties:
+                      categories:
+                        type: object
+                        properties:
+                          current_page:
+                            type: integer
+                            example: 1
+                          data:
+                            type: array
+                            example:
+                              -
+                                id: 2
+                                name:
+                                  ar: 'حارث حمود المنيف'
+                                  en: Home
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 3
+                                name:
+                                  ar: 'رداد الداوود'
+                                  en: Jewelry
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 4
+                                name:
+                                  ar: 'نادين برماوي'
+                                  en: Industrial
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 5
+                                name:
+                                  ar: 'كرم سري الحسين الشيباني'
+                                  en: Electronics
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 7
+                                name:
+                                  ar: 'زين مكي'
+                                  en: Automotive
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 8
+                                name:
+                                  ar: 'داليا منح السهلي'
+                                  en: Grocery
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 9
+                                name:
+                                  ar: 'ليندا فايز السهلي'
+                                  en: Tools
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 10
+                                name:
+                                  ar: 'مديحة السهلي'
+                                  en: Health
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 11
+                                name:
+                                  ar: 'هاني السيف'
+                                  en: Garden
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 12
+                                name:
+                                  ar: 'الآنسة رزان الشهيل'
+                                  en: Garden
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 13
+                                name:
+                                  ar: 'مها الأسمري'
+                                  en: Electronics
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 14
+                                name:
+                                  ar: 'عزيزة رزق الأسمري'
+                                  en: Home
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 15
+                                name:
+                                  ar: 'السيدة سرى باشا'
+                                  en: Shoes
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 16
+                                name:
+                                  ar: 'الياس العمرو'
+                                  en: Industrial
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                              -
+                                id: 17
+                                name:
+                                  ar: 'غيداء جاسم الشهري'
+                                  en: Home
+                                is_active: 1
+                                parent_id: null
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                image: []
+                                children: []
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 2
+                                name:
+                                  type: object
+                                  properties:
+                                    ar:
+                                      type: string
+                                      example: 'حارث حمود المنيف'
+                                    en:
+                                      type: string
+                                      example: Home
+                                is_active:
+                                  type: integer
+                                  example: 1
+                                parent_id:
+                                  type: string
+                                  example: null
+                                created_at:
+                                  type: string
+                                  example: '2023-01-19T11:40:03.000000Z'
+                                updated_at:
+                                  type: string
+                                  example: '2023-01-19T11:40:03.000000Z'
+                                image:
+                                  type: array
+                                  example: []
+                                children:
+                                  type: array
+                                  example: []
+                          first_page_url:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/categories?page=1'
+                          from:
+                            type: integer
+                            example: 1
+                          next_page_url:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/categories?page=2'
+                          path:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/categories'
+                          per_page:
+                            type: integer
+                            example: 15
+                          prev_page_url:
+                            type: string
+                            example: null
+                          to:
+                            type: integer
+                            example: 15
+      tags:
+        - Endpoints
+      security: []
+  /api/home/exclusiveProducts:
+    get:
+      summary: ''
+      operationId: getApiHomeExclusiveProducts
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'your Request has been done successfully'
+                  body:
+                    'Exclusive Products':
+                      current_page: 1
+                      data:
+                        -
+                          id: 3
+                          name:
+                            ar: 'رجا حازم اسحاق الماجد'
+                            en: 'Synergistic Concrete Shirt'
+                          category_id: 17
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Eius rem nemo laudantium vero possimus perferendis architecto. Sit velit sed itaque nam harum veritatis aspernatur.'
+                          technical_description: 'Ea velit accusamus dolores et. Maiores aut consequatur dicta dolorum eaque aspernatur. Qui voluptas iure aspernatur ipsum aspernatur in beatae. Asperiores ea reiciendis est culpa asperiores.'
+                          shipping_time: "I know!' exclaimed Alice, who was peeping."
+                          price: 8
+                          brand_id: 1
+                          quantity: 54
+                          discount_value: 13
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 6.96
+                          image: []
+                          category:
+                            id: 17
+                            name:
+                              ar: 'غيداء جاسم الشهري'
+                              en: Home
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                        -
+                          id: 7
+                          name:
+                            ar: 'بلال المشيقح'
+                            en: 'Heavy Duty Copper Gloves'
+                          category_id: 2
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Non omnis consequatur itaque odio corporis. Saepe dolorem aut labore distinctio consequatur suscipit nobis. Perspiciatis id consequatur dignissimos consequatur velit unde.'
+                          technical_description: 'Mollitia suscipit sed odit consequatur. Itaque non aperiam quod et cumque nisi sint. Nobis nobis cumque debitis. Et consequatur exercitationem repudiandae est quo fuga.'
+                          shipping_time: 'The Dormouse shook itself, and began to repeat.'
+                          price: 11
+                          brand_id: 17
+                          quantity: 59
+                          discount_value: 96
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 0.44
+                          image: []
+                          category:
+                            id: 2
+                            name:
+                              ar: 'حارث حمود المنيف'
+                              en: Home
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                        -
+                          id: 9
+                          name:
+                            ar: 'ذيب الأحمري'
+                            en: 'Intelligent Granite Computer'
+                          category_id: 10
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Voluptate magni esse saepe voluptate voluptates iusto voluptate nihil. Qui dolor voluptas nesciunt consectetur. Id similique minus dolor aliquam possimus illo minima.'
+                          technical_description: 'Harum tempore iure quidem earum repellat. Assumenda distinctio laborum totam est. Saepe distinctio nostrum voluptatem suscipit nam.'
+                          shipping_time: "I'll tell him--it was for bringing the cook had."
+                          price: 2
+                          brand_id: 15
+                          quantity: 30
+                          discount_value: 27
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 1.46
+                          image: []
+                          category:
+                            id: 10
+                            name:
+                              ar: 'مديحة السهلي'
+                              en: Health
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                        -
+                          id: 13
+                          name:
+                            ar: 'هيفا السعيد'
+                            en: 'Lightweight Concrete Car'
+                          category_id: 16
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Similique ut totam sed blanditiis consequatur ducimus. Reiciendis corporis consequatur voluptatibus culpa incidunt quia. Sit maiores rerum ex placeat.'
+                          technical_description: 'Et quibusdam deleniti quam. Non corrupti labore nihil ea repellat mollitia. Quos omnis veniam magni sequi in culpa accusamus. Dolor tempora velit similique ipsum.'
+                          shipping_time: 'ALL RETURNED FROM HIM TO YOU,"'' said Alice.'
+                          price: 7
+                          brand_id: 13
+                          quantity: 27
+                          discount_value: 79
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 1.47
+                          image: []
+                          category:
+                            id: 16
+                            name:
+                              ar: 'الياس العمرو'
+                              en: Industrial
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                        -
+                          id: 14
+                          name:
+                            ar: 'عاليا رامين سالم السليم'
+                            en: 'Awesome Steel Hat'
+                          category_id: 18
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Explicabo corrupti ut distinctio culpa fuga velit. Amet facere repellendus ex qui odio et. Ipsa nihil atque sed ipsam et consequatur. Qui amet quia amet quia. Maxime animi quia aliquam quia.'
+                          technical_description: 'Dolorem sed quo dicta veniam enim tempora. Qui eveniet fuga fuga dolores quas velit nulla. Laudantium sunt consequatur officia sed.'
+                          shipping_time: "So she called softly after it, 'Mouse dear! Do."
+                          price: 8
+                          brand_id: 10
+                          quantity: 76
+                          discount_value: 38
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 4.96
+                          image: []
+                          category:
+                            id: 18
+                            name:
+                              ar: 'رافي الشيباني'
+                              en: Shoes
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                        -
+                          id: 15
+                          name:
+                            ar: 'رشيد مالك الأسمري'
+                            en: 'Intelligent Wooden Knife'
+                          category_id: 12
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Animi nulla iure odio repellendus eius quae quod. Ratione omnis consequatur vitae perspiciatis. Iusto eveniet fugit vel soluta voluptatem. Magni quo deleniti qui sequi.'
+                          technical_description: 'Consequatur aut inventore est illo corporis quae. Libero ipsa ut expedita odio dolor. Vel molestiae numquam nobis qui.'
+                          shipping_time: "King, with an M?' said Alice. 'I'm glad I've."
+                          price: 9
+                          brand_id: 7
+                          quantity: 25
+                          discount_value: 99
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 0.09
+                          image: []
+                          category:
+                            id: 12
+                            name:
+                              ar: 'الآنسة رزان الشهيل'
+                              en: Garden
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                        -
+                          id: 20
+                          name:
+                            ar: 'مهاب ماهر مهاب الحسين'
+                            en: 'Heavy Duty Linen Hat'
+                          category_id: 11
+                          is_active: 1
+                          is_exclusive: 1
+                          general_description: 'Ut quo voluptas dolore omnis quia. Enim odio sed dolor itaque. Dicta nihil omnis similique vero.'
+                          technical_description: 'Hic ducimus quae totam. Odio quo et impedit labore et. Tenetur recusandae id veritatis quas. Quis aut aliquam nihil labore quas magnam nobis qui. Quos est ratione quia rerum et ipsam libero et.'
+                          shipping_time: "CHAPTER V. Advice from a bottle marked 'poison,'."
+                          price: 17
+                          brand_id: 17
+                          quantity: 15
+                          discount_value: 74
+                          discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                          created_at: '2023-01-19T11:40:03.000000Z'
+                          updated_at: '2023-01-19T11:40:03.000000Z'
+                          final_price: 4.42
+                          image: []
+                          category:
+                            id: 11
+                            name:
+                              ar: 'هاني السيف'
+                              en: Garden
+                            is_active: 1
+                            parent_id: null
+                            created_at: '2023-01-19T11:40:03.000000Z'
+                            updated_at: '2023-01-19T11:40:03.000000Z'
+                      first_page_url: 'https://alwatania.aquadic.com/api/home/exclusiveProducts?page=1'
+                      from: 1
+                      next_page_url: null
+                      path: 'https://alwatania.aquadic.com/api/home/exclusiveProducts'
+                      per_page: 15
+                      prev_page_url: null
+                      to: 7
+                properties:
+                  message:
+                    type: string
+                    example: 'your Request has been done successfully'
+                  body:
+                    type: object
+                    properties:
+                      'Exclusive Products':
+                        type: object
+                        properties:
+                          current_page:
+                            type: integer
+                            example: 1
+                          data:
+                            type: array
+                            example:
+                              -
+                                id: 3
+                                name:
+                                  ar: 'رجا حازم اسحاق الماجد'
+                                  en: 'Synergistic Concrete Shirt'
+                                category_id: 17
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Eius rem nemo laudantium vero possimus perferendis architecto. Sit velit sed itaque nam harum veritatis aspernatur.'
+                                technical_description: 'Ea velit accusamus dolores et. Maiores aut consequatur dicta dolorum eaque aspernatur. Qui voluptas iure aspernatur ipsum aspernatur in beatae. Asperiores ea reiciendis est culpa asperiores.'
+                                shipping_time: "I know!' exclaimed Alice, who was peeping."
+                                price: 8
+                                brand_id: 1
+                                quantity: 54
+                                discount_value: 13
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 6.96
+                                image: []
+                                category:
+                                  id: 17
+                                  name:
+                                    ar: 'غيداء جاسم الشهري'
+                                    en: Home
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                              -
+                                id: 7
+                                name:
+                                  ar: 'بلال المشيقح'
+                                  en: 'Heavy Duty Copper Gloves'
+                                category_id: 2
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Non omnis consequatur itaque odio corporis. Saepe dolorem aut labore distinctio consequatur suscipit nobis. Perspiciatis id consequatur dignissimos consequatur velit unde.'
+                                technical_description: 'Mollitia suscipit sed odit consequatur. Itaque non aperiam quod et cumque nisi sint. Nobis nobis cumque debitis. Et consequatur exercitationem repudiandae est quo fuga.'
+                                shipping_time: 'The Dormouse shook itself, and began to repeat.'
+                                price: 11
+                                brand_id: 17
+                                quantity: 59
+                                discount_value: 96
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 0.44
+                                image: []
+                                category:
+                                  id: 2
+                                  name:
+                                    ar: 'حارث حمود المنيف'
+                                    en: Home
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                              -
+                                id: 9
+                                name:
+                                  ar: 'ذيب الأحمري'
+                                  en: 'Intelligent Granite Computer'
+                                category_id: 10
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Voluptate magni esse saepe voluptate voluptates iusto voluptate nihil. Qui dolor voluptas nesciunt consectetur. Id similique minus dolor aliquam possimus illo minima.'
+                                technical_description: 'Harum tempore iure quidem earum repellat. Assumenda distinctio laborum totam est. Saepe distinctio nostrum voluptatem suscipit nam.'
+                                shipping_time: "I'll tell him--it was for bringing the cook had."
+                                price: 2
+                                brand_id: 15
+                                quantity: 30
+                                discount_value: 27
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 1.46
+                                image: []
+                                category:
+                                  id: 10
+                                  name:
+                                    ar: 'مديحة السهلي'
+                                    en: Health
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                              -
+                                id: 13
+                                name:
+                                  ar: 'هيفا السعيد'
+                                  en: 'Lightweight Concrete Car'
+                                category_id: 16
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Similique ut totam sed blanditiis consequatur ducimus. Reiciendis corporis consequatur voluptatibus culpa incidunt quia. Sit maiores rerum ex placeat.'
+                                technical_description: 'Et quibusdam deleniti quam. Non corrupti labore nihil ea repellat mollitia. Quos omnis veniam magni sequi in culpa accusamus. Dolor tempora velit similique ipsum.'
+                                shipping_time: 'ALL RETURNED FROM HIM TO YOU,"'' said Alice.'
+                                price: 7
+                                brand_id: 13
+                                quantity: 27
+                                discount_value: 79
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 1.47
+                                image: []
+                                category:
+                                  id: 16
+                                  name:
+                                    ar: 'الياس العمرو'
+                                    en: Industrial
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                              -
+                                id: 14
+                                name:
+                                  ar: 'عاليا رامين سالم السليم'
+                                  en: 'Awesome Steel Hat'
+                                category_id: 18
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Explicabo corrupti ut distinctio culpa fuga velit. Amet facere repellendus ex qui odio et. Ipsa nihil atque sed ipsam et consequatur. Qui amet quia amet quia. Maxime animi quia aliquam quia.'
+                                technical_description: 'Dolorem sed quo dicta veniam enim tempora. Qui eveniet fuga fuga dolores quas velit nulla. Laudantium sunt consequatur officia sed.'
+                                shipping_time: "So she called softly after it, 'Mouse dear! Do."
+                                price: 8
+                                brand_id: 10
+                                quantity: 76
+                                discount_value: 38
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 4.96
+                                image: []
+                                category:
+                                  id: 18
+                                  name:
+                                    ar: 'رافي الشيباني'
+                                    en: Shoes
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                              -
+                                id: 15
+                                name:
+                                  ar: 'رشيد مالك الأسمري'
+                                  en: 'Intelligent Wooden Knife'
+                                category_id: 12
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Animi nulla iure odio repellendus eius quae quod. Ratione omnis consequatur vitae perspiciatis. Iusto eveniet fugit vel soluta voluptatem. Magni quo deleniti qui sequi.'
+                                technical_description: 'Consequatur aut inventore est illo corporis quae. Libero ipsa ut expedita odio dolor. Vel molestiae numquam nobis qui.'
+                                shipping_time: "King, with an M?' said Alice. 'I'm glad I've."
+                                price: 9
+                                brand_id: 7
+                                quantity: 25
+                                discount_value: 99
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 0.09
+                                image: []
+                                category:
+                                  id: 12
+                                  name:
+                                    ar: 'الآنسة رزان الشهيل'
+                                    en: Garden
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                              -
+                                id: 20
+                                name:
+                                  ar: 'مهاب ماهر مهاب الحسين'
+                                  en: 'Heavy Duty Linen Hat'
+                                category_id: 11
+                                is_active: 1
+                                is_exclusive: 1
+                                general_description: 'Ut quo voluptas dolore omnis quia. Enim odio sed dolor itaque. Dicta nihil omnis similique vero.'
+                                technical_description: 'Hic ducimus quae totam. Odio quo et impedit labore et. Tenetur recusandae id veritatis quas. Quis aut aliquam nihil labore quas magnam nobis qui. Quos est ratione quia rerum et ipsam libero et.'
+                                shipping_time: "CHAPTER V. Advice from a bottle marked 'poison,'."
+                                price: 17
+                                brand_id: 17
+                                quantity: 15
+                                discount_value: 74
+                                discount_expiration_date: '2023-01-22T11:40:03.000000Z'
+                                created_at: '2023-01-19T11:40:03.000000Z'
+                                updated_at: '2023-01-19T11:40:03.000000Z'
+                                final_price: 4.42
+                                image: []
+                                category:
+                                  id: 11
+                                  name:
+                                    ar: 'هاني السيف'
+                                    en: Garden
+                                  is_active: 1
+                                  parent_id: null
+                                  created_at: '2023-01-19T11:40:03.000000Z'
+                                  updated_at: '2023-01-19T11:40:03.000000Z'
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 3
+                                name:
+                                  type: object
+                                  properties:
+                                    ar:
+                                      type: string
+                                      example: 'رجا حازم اسحاق الماجد'
+                                    en:
+                                      type: string
+                                      example: 'Synergistic Concrete Shirt'
+                                category_id:
+                                  type: integer
+                                  example: 17
+                                is_active:
+                                  type: integer
+                                  example: 1
+                                is_exclusive:
+                                  type: integer
+                                  example: 1
+                                general_description:
+                                  type: string
+                                  example: 'Eius rem nemo laudantium vero possimus perferendis architecto. Sit velit sed itaque nam harum veritatis aspernatur.'
+                                technical_description:
+                                  type: string
+                                  example: 'Ea velit accusamus dolores et. Maiores aut consequatur dicta dolorum eaque aspernatur. Qui voluptas iure aspernatur ipsum aspernatur in beatae. Asperiores ea reiciendis est culpa asperiores.'
+                                shipping_time:
+                                  type: string
+                                  example: "I know!' exclaimed Alice, who was peeping."
+                                price:
+                                  type: integer
+                                  example: 8
+                                brand_id:
+                                  type: integer
+                                  example: 1
+                                quantity:
+                                  type: integer
+                                  example: 54
+                                discount_value:
+                                  type: integer
+                                  example: 13
+                                discount_expiration_date:
+                                  type: string
+                                  example: '2023-01-22T11:40:03.000000Z'
+                                created_at:
+                                  type: string
+                                  example: '2023-01-19T11:40:03.000000Z'
+                                updated_at:
+                                  type: string
+                                  example: '2023-01-19T11:40:03.000000Z'
+                                final_price:
+                                  type: number
+                                  example: 6.96
+                                image:
+                                  type: array
+                                  example: []
+                                category:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                      example: 17
+                                    name:
+                                      type: object
+                                      properties: { ar: { type: string, example: 'غيداء جاسم الشهري' }, en: { type: string, example: Home } }
+                                    is_active:
+                                      type: integer
+                                      example: 1
+                                    parent_id:
+                                      type: string
+                                      example: null
+                                    created_at:
+                                      type: string
+                                      example: '2023-01-19T11:40:03.000000Z'
+                                    updated_at:
+                                      type: string
+                                      example: '2023-01-19T11:40:03.000000Z'
+                          first_page_url:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/exclusiveProducts?page=1'
+                          from:
+                            type: integer
+                            example: 1
+                          next_page_url:
+                            type: string
+                            example: null
+                          path:
+                            type: string
+                            example: 'https://alwatania.aquadic.com/api/home/exclusiveProducts'
+                          per_page:
+                            type: integer
+                            example: 15
+                          prev_page_url:
+                            type: string
+                            example: null
+                          to:
+                            type: integer
+                            example: 7
+      tags:
+        - Endpoints
+      security: []
+  /api/home/get_product_by_category:
+    get:
+      summary: ''
+      operationId: getApiHomeGet_product_by_category
+      description: ''
+      parameters:
+        -
+          in: query
+          name: category_id
+          description: ''
+          example: alias
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: alias
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: string
+                  description: ''
+                  example: eligendi
+              required:
+                - category_id
+      security: []
+  /api/home/add_favourite:
+    post:
+      summary: ''
+      operationId: postApiHomeAdd_favourite
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: string
+                  description: ''
+                  example: animi
+              required:
+                - product_id
+      security: []
+  /api/home/get_user_favourites:
+    get:
+      summary: ''
+      operationId: getApiHomeGet_user_favourites
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/home/get_user_notifications:
+    get:
+      summary: ''
+      operationId: getApiHomeGet_user_notifications
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+  /api/auth/social_auth:
+    post:
+      summary: ''
+      operationId: postApiAuthSocial_auth
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                provider:
+                  type: string
+                  description: 'Must be one of <code>facebook</code>, <code>google</code>, <code>twitter</code>, or <code>apple</code> Must be at least 0 characters. Must not be greater than 191 characters.'
+                  example: agfwlyomwp
+                access_token:
+                  type: string
+                  description: 'Must be at least 0 characters.'
+                  example: fzhxpympmkztazytpspegddliropycivjkxtcunhlwqoqjd
+                access_secret:
+                  type: string
+                  description: 'Must be at least 0 characters.'
+                  example: zzirquowcvrfsgdltaesjbnmvqhfbxixzveuxasodrjgfwxriudwxnrtmcuoqraqrkssdmrjorccrosqlnjg
+              required:
+                - provider
+                - access_token
+      security: []
+  /api/order/add_to_cart:
+    post:
+      summary: ''
+      operationId: postApiOrderAdd_to_cart
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: string
+                  description: ''
+                  example: eos
+                quantity:
+                  type: integer
+                  description: ''
+                  example: 2
+              required:
+                - product_id
+                - quantity
+      security: []
+  /api/order/update_cart:
+    post:
+      summary: ''
+      operationId: postApiOrderUpdate_cart
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+                  description: ''
+                  example: 3
+                product_id:
+                  type: string
+                  description: ''
+                  example: ducimus
+              required:
+                - quantity
+                - product_id
+      security: []
+  /api/order/delete_item:
+    post:
+      summary: ''
+      operationId: postApiOrderDelete_item
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: string
+                  description: ''
+                  example: qui
+              required:
+                - product_id
+      security: []
+  /api/order/clear_cart:
+    post:
+      summary: ''
+      operationId: postApiOrderClear_cart
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/order/get_cart:
+    get:
+      summary: ''
+      operationId: getApiOrderGet_cart
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/order/coupon_check:
+    get:
+      summary: ''
+      operationId: getApiOrderCoupon_check
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                coupon_code:
+                  type: string
+                  description: ''
+                  example: dolor
+                type:
+                  type: string
+                  description: ''
+                  example: quasi
+              required:
+                - coupon_code
+      security: []
+  /api/order/create_order:
+    post:
+      summary: ''
+      operationId: postApiOrderCreate_order
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                coupon_id:
+                  type: string
+                  description: ''
+                  example: null
+                payment_method:
+                  type: string
+                  description: ''
+                  example: est
+                address_id:
+                  type: string
+                  description: ''
+                  example: in
+              required:
+                - payment_method
+                - address_id
+      security: []
+  /api/order/cancel_order:
+    post:
+      summary: ''
+      operationId: postApiOrderCancel_order
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: string
+                  description: ''
+                  example: ducimus
+                status:
+                  type: string
+                  description: ''
+                  example: nesciunt
+              required:
+                - order_id
+                - status
+      security: []
+  /api/order/checkout_cart:
+    get:
+      summary: ''
+      operationId: getApiOrderCheckout_cart
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address_id:
+                  type: string
+                  description: ''
+                  example: aut
+                coupon_id:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - address_id
+      security: []
+  /api/order/get_orders:
+    get:
+      summary: ''
+      operationId: getApiOrderGet_orders
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/address/address:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: ut
+                family_name:
+                  type: string
+                  description: ''
+                  example: cumque
+                street_name:
+                  type: string
+                  description: ''
+                  example: quasi
+                city_id:
+                  type: string
+                  description: ''
+                  example: totam
+                area_id:
+                  type: string
+                  description: ''
+                  example: aut
+                building_no:
+                  type: integer
+                  description: ''
+                  example: 15
+                level:
+                  type: integer
+                  description: ''
+                  example: 4
+                flat_no:
+                  type: integer
+                  description: ''
+                  example: 18
+                phone:
+                  type: string
+                  description: ''
+                  example: magnam
+              required:
+                - name
+                - family_name
+                - street_name
+                - city_id
+                - area_id
+                - building_no
+                - level
+                - flat_no
+                - phone
+      security: []
+  '/api/address/address/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: pariatur
+                family_name:
+                  type: string
+                  description: ''
+                  example: sequi
+                street_name:
+                  type: string
+                  description: ''
+                  example: voluptates
+                city_id:
+                  type: string
+                  description: ''
+                  example: null
+                area_id:
+                  type: string
+                  description: ''
+                  example: null
+                address_phone:
+                  type: string
+                  description: ''
+                  example: eveniet
+                building_no:
+                  type: integer
+                  description: ''
+                  example: 3
+                level:
+                  type: integer
+                  description: ''
+                  example: 10
+                flat_no:
+                  type: integer
+                  description: ''
+                  example: 15
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the address.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Auth
+    description: ''
+  -
+    name: Endpoints
+    description: ''

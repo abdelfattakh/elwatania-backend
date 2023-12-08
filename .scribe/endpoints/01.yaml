@@ -1,0 +1,442 @@
+name: Auth
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/register
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Register New User.'
+      description: "Sends Email with OTP to user's email."
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'Must not be greater than 100 characters.'
+        required: true
+        example: hwxthoeydeenegj
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'Must not be greater than 100 characters.'
+        required: true
+        example: cwnauhrpfni
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: ashleigh59@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must not be greater than 100 characters. Must be at least 8 characters.'
+        required: true
+        example: "?A'.p`hq>d>S>"
+        type: string
+        custom: []
+    cleanBodyParameters:
+      first_name: hwxthoeydeenegj
+      last_name: cwnauhrpfni
+      email: ashleigh59@example.com
+      password: "?A'.p`hq>d>S>"
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/verifyUser
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verify User Account.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: ''
+        required: true
+        example: velit
+        type: string
+        custom: []
+      code:
+        name: code
+        description: 'Must be at least 6 characters. Must not be greater than 6 characters.'
+        required: true
+        example: uqaea
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: velit
+      code: uqaea
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Login user Account'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: ''
+        required: true
+        example: ut
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: hic
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: ut
+      password: hic
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/logout
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Logout From Account'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      from_all:
+        name: from_all
+        description: 'optional send to logout from all devices.'
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    cleanBodyParameters:
+      from_all: false
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/update_profile
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: zuiiuzznss
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: dzokapeuzaqmfufbsa
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: false
+        example: florida.schaefer@example.com
+        type: string
+        custom: []
+      current_password:
+        name: current_password
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'This field is required when <code>current_password</code> is present.'
+        required: false
+        example: null
+        type: string
+        custom: []
+    cleanBodyParameters:
+      first_name: zuiiuzznss
+      last_name: dzokapeuzaqmfufbsa
+      email: florida.schaefer@example.com
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/change_password
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'TODO(Saifallak): Pending Test.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: ''
+        required: true
+        example: quam
+        type: string
+        custom: []
+      reset_token:
+        name: reset_token
+        description: ''
+        required: true
+        example: labore
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: quod
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: quam
+      reset_token: labore
+      password: quod
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/user
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Current User.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/reset_password
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Reset Password
+        TODO(Saifallak): Pending Test.
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: ''
+        required: true
+        example: qui
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: qui
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/verify_reset_password
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verify Reset Password.'
+      description: 'TODO(Saifallak): Pending Test.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: ''
+        required: true
+        example: aut
+        type: string
+        custom: []
+      username:
+        name: username
+        description: ''
+        required: true
+        example: tempora
+        type: string
+        custom: []
+    cleanBodyParameters:
+      code: aut
+      username: tempora
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
